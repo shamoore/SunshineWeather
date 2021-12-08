@@ -1,12 +1,12 @@
-package com.shawhiz.sunshineweather
+package com.shawhiz.sunshineweather.forecast
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.shawhiz.sunshineweather.R
 import com.shawhiz.sunshineweather.databinding.ForecastActivityLayoutBinding
 import org.koin.android.ext.android.inject
-import kotlin.math.roundToInt
 
 /**
  * Created by Shannon Moore on 12/7/2021.
@@ -37,11 +37,8 @@ class ForecastActivity : AppCompatActivity() {
 
         })
 
-        
-
         viewModel.getForecast()
-
-
     }
+
 
 }

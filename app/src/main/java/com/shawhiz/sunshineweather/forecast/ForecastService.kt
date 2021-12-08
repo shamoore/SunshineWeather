@@ -1,4 +1,4 @@
-package com.shawhiz.sunshineweather
+package com.shawhiz.sunshineweather.forecast
 
 import com.shawhiz.sunshineweather.data.Forecast
 import retrofit2.Call

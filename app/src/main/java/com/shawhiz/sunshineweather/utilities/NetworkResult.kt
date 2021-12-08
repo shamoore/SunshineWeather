@@ -1,4 +1,4 @@
-package com.shawhiz.sunshineweather
+package com.shawhiz.sunshineweather.utilities
 
 /**
  * Created by Shannon Moore on 12/7/2021.

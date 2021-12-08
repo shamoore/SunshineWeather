@@ -1,6 +1,8 @@
-package com.shawhiz.sunshineweather
+package com.shawhiz.sunshineweather.forecast
 
 import androidx.lifecycle.MutableLiveData
+import com.shawhiz.sunshineweather.utilities.NetworkError
+import com.shawhiz.sunshineweather.utilities.NetworkSuccess
 import com.shawhiz.sunshineweather.data.Forecast
 
 /**

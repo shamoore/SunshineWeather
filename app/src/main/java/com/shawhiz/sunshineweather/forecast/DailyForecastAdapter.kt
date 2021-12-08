@@ -1,4 +1,4 @@
-package com.shawhiz.sunshineweather
+package com.shawhiz.sunshineweather.forecast
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.shawhiz.sunshineweather.R
 import com.shawhiz.sunshineweather.data.DailyForecast
 import com.shawhiz.sunshineweather.databinding.ForecastDayItemBinding
 

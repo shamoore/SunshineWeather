@@ -1,7 +1,8 @@
-package com.shawhiz.sunshineweather
+package com.shawhiz.sunshineweather.forecast
 
 import android.content.Context
 import com.shawhiz.sunshineweather.data.Forecast
+import com.shawhiz.sunshineweather.utilities.*
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

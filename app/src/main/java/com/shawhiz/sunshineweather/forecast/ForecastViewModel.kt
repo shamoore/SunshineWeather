@@ -1,4 +1,4 @@
-package com.shawhiz.sunshineweather
+package com.shawhiz.sunshineweather.forecast
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -5,7 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.location.Location
 import android.location.LocationManager
-import com.shawhiz.sunshineweather.permissionCheck
+import com.shawhiz.sunshineweather.utilities.permissionCheck
 
 /**
  * Created by Shannon Moore on 12/4/2021.

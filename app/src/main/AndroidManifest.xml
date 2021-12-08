@@ -20,7 +20,7 @@
         android:theme="@style/Theme.SunshineWeather">
 
         <activity
-            android:name=".ForecastActivity"
+            android:name=".forecast.ForecastActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

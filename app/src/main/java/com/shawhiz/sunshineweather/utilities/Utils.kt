@@ -1,4 +1,4 @@
-package com.shawhiz.sunshineweather
+package com.shawhiz.sunshineweather.utilities
 
 import android.content.Context
 import android.content.pm.PackageManager
