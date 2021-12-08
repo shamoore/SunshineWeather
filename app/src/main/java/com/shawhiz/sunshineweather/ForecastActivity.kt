@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shawhiz.sunshineweather.databinding.ForecastActivityLayoutBinding
 import org.koin.android.ext.android.inject
+import kotlin.math.roundToInt
 
 /**
  * Created by Shannon Moore on 12/7/2021.
@@ -28,8 +29,15 @@ class ForecastActivity : AppCompatActivity() {
 
         viewModel.forecast.observe(this, { forecast ->
             binding.dailyForecast = forecast.list.first()
+            binding.city = forecast.city
+            forecast.list.first().humidity.toInt()
+
+            adapter.submitList(forecast.list)
+
 
         })
+
+        
 
         viewModel.getForecast()
 

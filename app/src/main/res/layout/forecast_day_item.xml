@@ -8,19 +8,44 @@
         <variable
             name="dailyForecast"
             type="com.shawhiz.sunshineweather.data.DailyForecast" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="first"
+            type="Boolean" />
+
+        <variable
+            name="weatherIconResource"
+            type="Integer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:paddingTop="4dp">
 
+        <TextView
+            android:id="@+id/tenDayHeader"
+            style="@style/subHeader"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ten_day_forecast"
+            android:textStyle="bold"
+            android:visibility="@{first ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/weatherIcon"
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
-            android:contentDescription="@{dailyForecast.weekday}"
+            android:contentDescription="@{dailyForecast.weekDayName}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/weekDay"
             tools:src="@drawable/weather_sunny" />
@@ -32,10 +57,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
-            android:text="@{dailyForecast.weekday}"
+            android:text="@{dailyForecast.weekDayName}"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/weatherIcon"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tenDayHeader"
             tools:text="Tuesday" />
 
         <TextView
@@ -44,7 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="4dp"
-            android:text="@{dailyForecast.weatherDetails.main"
+            android:text="@{dailyForecast.weatherDetails.description}"
+            android:textStyle="italic"
             app:layout_constraintStart_toStartOf="@id/weekDay"
             app:layout_constraintTop_toBottomOf="@id/weekDay"
             tools:text="Rainy" />
@@ -54,7 +80,7 @@
             style="@style/highTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{@string/degrees(dailyForecast.temp.max)}"
+            android:text="@{@string/degrees(dailyForecast.temp.maxInt)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/weekDay"
             tools:text="77\u00B0" />
@@ -64,7 +90,7 @@
             style="@style/lowTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{@string/degrees(dailyForecast.temp.min)}"
+            android:text="@{@string/degrees(dailyForecast.temp.minInt)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/highTemp"
             tools:text="56\u00B0" />
@@ -85,7 +111,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="4dp"
-                android:text="@{@string/degrees(dailyForecast.temp.max)}"
+
+                android:text="@{@string/humidity(dailyForecast.humidityInt)}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Humidity: 81%" />
@@ -96,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="4dp"
-                android:text="@{@string/pressure(dailyForecast.pressure)}"
+                android:text="@{@string/pressure(dailyForecast.pressureInt)}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/humidity"
                 tools:text="Pressure 1017 hPa" />
@@ -107,8 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="4dp"
-                android:paddingBottom="16dp"
-                android:text="@{@string/wind(dailyForecast.speed, dailyForecast.windDirection)}"
+                android:text="@{@string/wind(dailyForecast.speedInt, dailyForecast.windDirectionName)}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pressure"
                 tools:text="Wind: 2km/h NW" />
@@ -116,6 +142,13 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
+            android:id="@+id/spacer"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            app:layout_constraintTop_toBottomOf="@id/expanded_weather" />
+
+        <View
+
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/divider_grey"
