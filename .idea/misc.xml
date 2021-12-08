@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/drawable/menu.xml" value="0.5177083333333333" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/drawable/weather_cloudy.xml" value="0.5177083333333333" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/drawable/weather_cloudy_night.xml" value="0.5177083333333333" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/drawable/weather_moon.xml" value="0.5177083333333333" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/drawable/weather_partly_sunny.xml" value="0.5177083333333333" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/drawable/weather_rainy.xml" value="0.5177083333333333" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/drawable/weather_rainy_2.xml" value="0.5177083333333333" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/drawable/weather_stormy.xml" value="0.5177083333333333" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/drawable/weather_sunny.xml" value="0.5177083333333333" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/font/open_sans.xml" value="0.32447916666666665" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/layout/forecast_activity_layout.xml" value="0.33" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/layout/forecast_day_item.xml" value="0.67" />
+        <entry key="..\:/Users/shawh/AndroidStudioProjects/SunshineWeather/app/src/main/res/layout/forecast_today.xml" value="0.2786458333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

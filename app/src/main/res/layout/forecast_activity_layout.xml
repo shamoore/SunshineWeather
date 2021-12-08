@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="city"
+            type="com.shawhiz.sunshineweather.data.City" />
+
+        <variable
+            name="dailyForecast"
+            type="com.shawhiz.sunshineweather.data.DailyForecast" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/Theme.SunshineWeather">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="@drawable/menu"
+                app:title="@string/app_name"
+                app:titleTextColor="@color/navy" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/todaysWeather"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/navy"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+                <TextView
+                    android:id="@+id/location"
+                    style="@style/today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:text="@{city.name}"
+                    android:textSize="25sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Atlanta, GA" />
+
+
+                <TextView
+                    android:id="@+id/description"
+                    style="@style/today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{dailyForecast.weatherDetails.description}"
+                    android:textSize="25sp"
+                    app:drawableLeftCompat="@drawable/weather_sunny"
+                    app:drawableTint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/location"
+                    tools:text="Partly Cloudy" />
+
+
+                <TextView
+                    android:id="@+id/temp"
+                    style="@style/today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="56sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/description"
+                    tools:text="72" />
+
+                <TextView
+                    android:id="@+id/feelsLikeTemp"
+                    style="@style/today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/temp"
+                    tools:text="Feels like 82" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dailyForecastRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/todaysWeather"
+                tools:itemCount="10"
+                tools:listitem="@layout/forecast_day_item" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

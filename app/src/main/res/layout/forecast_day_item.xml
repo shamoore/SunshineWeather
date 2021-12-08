@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dailyForecast"
+            type="com.shawhiz.sunshineweather.data.DailyForecast" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:paddingTop="4dp">
+
+        <ImageView
+            android:id="@+id/weatherIcon"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:contentDescription="@{dailyForecast.weekday}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/weekDay"
+            tools:src="@drawable/weather_sunny" />
+
+        <TextView
+            android:id="@+id/weekDay"
+            style="@style/subHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@{dailyForecast.weekday}"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/weatherIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Tuesday" />
+
+        <TextView
+            android:id="@+id/weatherSummary"
+            style="@style/details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:text="@{dailyForecast.weatherDetails.main"
+            app:layout_constraintStart_toStartOf="@id/weekDay"
+            app:layout_constraintTop_toBottomOf="@id/weekDay"
+            tools:text="Rainy" />
+
+        <TextView
+            android:id="@+id/highTemp"
+            style="@style/highTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/degrees(dailyForecast.temp.max)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/weekDay"
+            tools:text="77\u00B0" />
+
+        <TextView
+            android:id="@+id/lowTemp"
+            style="@style/lowTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/degrees(dailyForecast.temp.min)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/highTemp"
+            tools:text="56\u00B0" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/expanded_weather"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/weatherSummary"
+            app:layout_constraintTop_toBottomOf="@id/weatherSummary"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/humidity"
+                style="@style/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="@{@string/degrees(dailyForecast.temp.max)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Humidity: 81%" />
+
+            <TextView
+                android:id="@+id/pressure"
+                style="@style/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="@{@string/pressure(dailyForecast.pressure)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/humidity"
+                tools:text="Pressure 1017 hPa" />
+
+            <TextView
+                android:id="@+id/wind"
+                style="@style/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:paddingBottom="16dp"
+                android:text="@{@string/wind(dailyForecast.speed, dailyForecast.windDirection)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pressure"
+                tools:text="Wind: 2km/h NW" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_grey"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
