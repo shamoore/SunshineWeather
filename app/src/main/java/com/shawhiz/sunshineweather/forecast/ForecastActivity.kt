@@ -45,6 +45,7 @@ class ForecastActivity : AppCompatActivity() {
         viewModel.forecast.observe(this, { forecast ->
             toggleProgress(false)
             binding.dailyForecast = forecast.list.first()
+            //TODO refactor this into the adapter to have a separate view type for the first instead of using this nestedScrollView solution.
             binding.city = forecast.city
             binding.descriptionIcon.setImageDrawable(ContextCompat.getDrawable(this, getWeatherDrawable(forecast.list.first().weatherDetails.icon)))
             forecast.list.first().humidity.toInt()
@@ -62,6 +63,7 @@ class ForecastActivity : AppCompatActivity() {
     }
 
     private fun getLocation() {
+        //TODO refactor this to provide a prompt for the user to input a location manually in place of the default if they do not want to give permission to use their location
         val client = LocationServices.getFusedLocationProviderClient(this)
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
             && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
