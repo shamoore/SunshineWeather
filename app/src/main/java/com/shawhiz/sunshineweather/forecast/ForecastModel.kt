@@ -60,8 +60,8 @@ class ForecastModel(private val context: Context) : ForecastModelInterface {
         }
 
         return try {
-            val response = if(location !=null) getService().pullForecast(location.latitude.toString(), location.longitude.toString(), count, mode, units, apiKey).execute()
-            else getService().pullForecast(defaultCity, count, mode, units, apiKey).execute()
+            val response = if (location != null) getService().pullForecast(null, location.latitude.toString(), location.longitude.toString(), count, mode, units, apiKey).execute()
+            else getService().pullForecast(defaultCity, null, null, count, mode, units, apiKey).execute()
             if (response.isSuccessful && response.body() != null) {
                 NetworkSuccess(response.body()!!)
             } else ApiError

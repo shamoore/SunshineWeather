@@ -87,7 +87,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="Atlanta, GA" />
 
-
+                    <!--CompoundDrawable was being a pain with the dynamic icon-->
                     <LinearLayout
                         android:id="@+id/description"
                         android:layout_width="wrap_content"
@@ -95,23 +95,24 @@
                         android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/location">
+                        app:layout_constraintTop_toBottomOf="@id/location"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             android:id="@+id/descriptionIcon"
                             android:layout_width="@dimen/icon_size"
                             android:layout_height="@dimen/icon_size"
-                            tools:src="@drawable/weather_sunny"
                             android:contentDescription="@{dailyForecast.weatherDetails.main}"
-                            app:tint="@color/white" />
+                            app:tint="@color/white"
+                            tools:src="@drawable/weather_sunny" />
 
                         <TextView
-                            android:paddingHorizontal="8dp"
                             android:id="@+id/descriptionText"
                             style="@style/today"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
+                            android:paddingHorizontal="8dp"
                             android:text="@{dailyForecast.weatherDetails.main}"
                             android:textSize="14sp"
                             app:drawableTint="@color/white"
