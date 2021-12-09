@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">SUNSHINE</string>
+    <string name="app_name">Sunshine Weather</string>
     <string name="degrees">%1$s\u00B0</string>
     <string name="humidity">Humidity: %1$s\%%</string>
     <string name="pressure">Pressure: %1$s hPa</string>
     <string name="wind">Wind: %1$s mph %2$s</string>//speed, direction
     <string name="feels_like">Feels like %1$s\u00B0</string>
     <string name="ten_day_forecast">10 Day Forecast</string>
-
+    <string name="local_forecast">Getting your local forecast…</string>
+    <string name="atlanta_forecast">Getting the forecast for Atlanta…</string>
 
 </resources>

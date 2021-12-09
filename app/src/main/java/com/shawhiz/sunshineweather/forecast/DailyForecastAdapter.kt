@@ -47,17 +47,18 @@ class DailyForecastAdapter : ListAdapter<DailyForecast, DailyForecastAdapter.Vie
 
     private fun getWeatherDrawable(icon: String): Int {
         return when (icon) {
-            "11d" -> R.drawable.weather_stormy
-            "09d" -> R.drawable.weather_rainy
-            "13d" -> R.drawable.weather_rainy_2
-            "10d" -> R.drawable.weather_rainy_2
-            "50d" -> R.drawable.weather_sunny
             "01d" -> R.drawable.weather_sunny
-            "01n" -> R.drawable.weather_moon
             "02d" -> R.drawable.weather_cloudy
+            "01n" -> R.drawable.weather_moon
             "02n" -> R.drawable.weather_cloudy_night
+            "03d" -> R.drawable.weather_cloudy
+            "04d" -> R.drawable.weather_cloudy
+            "09d" -> R.drawable.weather_rainy
+            "10d" -> R.drawable.weather_rainy_2
+            "11d" -> R.drawable.weather_stormy
+            "13d" -> R.drawable.weather_rainy_2
+            "50d" -> R.drawable.weather_sunny
             else -> R.drawable.weather_sunny
         }
-
     }
 }

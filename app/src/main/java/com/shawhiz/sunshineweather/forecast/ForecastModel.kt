@@ -1,6 +1,7 @@
 package com.shawhiz.sunshineweather.forecast
 
 import android.content.Context
+import android.location.Location
 import com.shawhiz.sunshineweather.data.Forecast
 import com.shawhiz.sunshineweather.utilities.*
 import okhttp3.OkHttpClient
@@ -13,11 +14,12 @@ import java.util.concurrent.TimeUnit
  */
 
 interface ForecastModelInterface {
-    fun getForecast(cityId: String, units: String): NetworkResult<Forecast>
+    fun getForecast(location: Location?, units: String): NetworkResult<Forecast>
 }
 
 class ForecastModel(private val context: Context) : ForecastModelInterface {
     companion object {
+        const val defaultCity = "Atlanta"
         const val baseUrl = "https://api.openweathermap.org"
         const val apiKey = "3aa158b2f14a9f493a8c725f8133d704"
         const val count = "10"
@@ -51,14 +53,15 @@ class ForecastModel(private val context: Context) : ForecastModelInterface {
     }
 
 
-    override fun getForecast(cityId: String, units: String): NetworkResult<Forecast> {
+    override fun getForecast(location: Location?, units: String): NetworkResult<Forecast> {
 
         if (isNetworkAvailable(context)) {
             return NetworkError
         }
 
         return try {
-            val response = getService().pullForecast(cityId, count, mode, units, apiKey).execute()
+            val response = if(location !=null) getService().pullForecast(location.latitude.toString(), location.longitude.toString(), count, mode, units, apiKey).execute()
+            else getService().pullForecast(defaultCity, count, mode, units, apiKey).execute()
             if (response.isSuccessful && response.body() != null) {
                 NetworkSuccess(response.body()!!)
             } else ApiError

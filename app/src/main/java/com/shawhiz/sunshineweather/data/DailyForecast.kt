@@ -1,5 +1,6 @@
 package com.shawhiz.sunshineweather.data
 
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
 
@@ -67,9 +68,10 @@ class DailyForecast(
 
 
     private fun getWeekday(): String {
-        val cal = Calendar.getInstance()
-        cal.timeInMillis = dt.toLong()
-        return cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG_FORMAT, Locale.ROOT) ?: ""
+        val dateFormat = SimpleDateFormat("EEEE", Locale.US)
+        return dateFormat.format(dt * 1000.toLong())
+
+
     }
 
     private fun getWindDirection(): String {

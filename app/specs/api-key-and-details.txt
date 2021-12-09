@@ -1,0 +1,15 @@
+For the API, you may use our api key:
+http://api.openweathermap.org/data/2.5/forecast/daily?q=Atlanta&mode=json&cnt=5&units=imperial&apikey=3aa158b2f14a9f493a8c725f8133d704
+
+Please also use the icon id tables to translate to the icons we've included in the zip file:
+
+11d  -> weather-stormy.svg
+09d -> weather-rainy.svg
+10d, 13d -> weather-rainy-2.svg
+50d, 01d -> weather-sunny.svg
+01n -> weather-moon.svg
+02d -> weather-cloudy.svg
+02n -> weather-cloudy-night.svg
+
+The original mappings are here:
+https://openweathermap.org/weather-conditions

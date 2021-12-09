@@ -69,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="4dp"
-            android:text="@{dailyForecast.weatherDetails.description}"
+            android:text="@{dailyForecast.weatherDetails.main}"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="@id/weekDay"
             app:layout_constraintTop_toBottomOf="@id/weekDay"
